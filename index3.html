@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Задание на синий пояс: Треугольник
+        let 
+            rowCountUser = prompt('Введите количество ярусов:'),
+            rowCount = Math.abs(rowCountUser),
+            colCount = rowCount * 2 - 1;
+        if(rowCount == 0){
+            alert('Некорректные данные!'); exit;
+        }
+        if(rowCount == undefined){
+            exit;
+        }
+
+        let s = '';
+        let middleIndex = Math.round(colCount / 2);//индекс середины если считать от 1
+        for(let i = 1; i <= rowCount; i++){//i - вертикальный индекс
+            let 
+                subStr = '',
+                firstIndex = middleIndex - i + 1,
+                finishIndex = middleIndex + i - 1;
+            
+            for(let j = 1; j <= colCount; j++){//j - горизонтальный индекс
+                subStr += 
+                    j < firstIndex || j > finishIndex ? '_' : '#';
+            }
+            if (rowCountUser > 0){
+                s += subStr + '\n';
+            }else{
+                s = subStr + '\n' + s;
+            }
+        }
+        alert(s);
+
+    </script>
+</body>
+</html>
